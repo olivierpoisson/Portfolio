@@ -1,15 +1,16 @@
 <template>
-    <div id="nav">
-        <img src="assets/images/Portfolio_Logo.png" alt="" />
-        <img src="assets/logo.png" alt="" />
-        <router-link to="/"
-            ><img src="assets/images/Portfolio_Logo.png" alt=""
-        /></router-link>
-        <router-link to="/">Home</router-link>
-        <router-link to="/about">About</router-link>
-    </div>
+    <Navigation />
     <router-view />
 </template>
+
+<script>
+import Navigation from "./components/Navigation.vue";
+export default {
+    components: {
+        Navigation,
+    },
+};
+</script>
 
 <style>
 #app {
@@ -24,7 +25,41 @@
     font-weight: bold;
     color: #2c3e50;
 }
-
-#nav a.router-link-exact-active {
+Row {
+    display: flex;
+}
+.RowCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Col {
+    display: flex;
+    flex-direction: column;
+}
+.ColCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+button {
+    padding: 1em 2em;
+}
+button:active {
+    transform: scale(0.95);
+}
+a {
+    text-decoration: none;
+    color: #2c3e50;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+a,
+p {
+    text-underline-offset: 5px;
 }
 </style>
