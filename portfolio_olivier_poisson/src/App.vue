@@ -5,6 +5,7 @@
 
 <script>
 import Navigation from "./components/Navigation.vue";
+
 export default {
     components: {
         Navigation,
@@ -13,25 +14,59 @@ export default {
 </script>
 
 <style>
+* {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 #app {
-    color: #2c3e50;
+    min-height: 100vh;
+    color: rgb(255, 255, 255);
+    line-height: 1.5;
+    background: #ece9e6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to top,
+        #ffffff,
+        #ece9e6
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #ffffff, #ece9e6);
+    scroll-behavior: smooth;
 }
 
-#nav {
-    padding: 30px;
+button {
+    padding: 1em 2em;
 }
-
-#nav a {
-    font-weight: bold;
-    color: #2c3e50;
+button:active {
+    transform: scale(0.95);
 }
-Row {
+a,
+p {
+    text-decoration: none;
+    color: #1f1c1c;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+a,
+p {
+    text-underline-offset: 5px;
+    color: #1f1c1c;
+}
+.Row {
     display: flex;
 }
 .RowCenter {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.RowEnd {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 .Col {
     display: flex;
@@ -42,24 +77,5 @@ Row {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-button {
-    padding: 1em 2em;
-}
-button:active {
-    transform: scale(0.95);
-}
-a {
-    text-decoration: none;
-    color: #2c3e50;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-a,
-p {
-    text-underline-offset: 5px;
 }
 </style>
