@@ -18,89 +18,40 @@
         </div>
     </section>
     <section class="section2">
-        <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Consequatur aspernatur labore rem fugit eos repellat ratione
-            molestiae harum delectus deserunt non consequuntur, cum, assumenda
-            itaque placeat asperiores? Laudantium velit quae accusantium ad?
-            Inventore libero laudantium sit molestias odio ullam illo repellat
-            animi blanditiis nobis tempore at ad hic ipsam alias aspernatur,
-            nesciunt distinctio nulla laboriosam consequuntur, deleniti sed
-            autem est delectus! Assumenda est sequi at, quod molestiae aperiam
-            eligendi error quaerat natus nisi accusamus, aspernatur ipsam sit id
-            illo. Nobis tempora, aut beatae deleniti libero hic necessitatibus
-            asperiores inventore architecto aliquid corrupti ratione autem iusto
-            facilis, maxime qui odio numquam. Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Voluptatibus illum laborum, aliquam
-            totam fugiat magni quam reprehenderit ex atque omnis architecto
-            obcaecati tempore quos ducimus adipisci repudiandae fuga quas odio,
-            amet, autem earum rem pariatur molestiae. Sit odio praesentium
-            ducimus deleniti ipsam iste quasi iure laudantium, dolorum
-            perspiciatis earum libero quas distinctio doloremque? Libero aut
-            quibusdam cum nobis nemo officia eveniet ipsa enim qui provident ab
-            officiis iure facilis beatae dolores recusandae veritatis excepturi
-            saepe, maxime voluptatibus rem dignissimos nesciunt! Vitae possimus
-            in quos expedita dolore veritatis, praesentium cum, earum molestias
-            consequuntur iure! Ab labore harum enim culpa, possimus nobis omnis
-            ut similique facilis facere quas molestiae corrupti cupiditate
-            maxime sequi fugiat consequatur laudantium quidem veniam illo,
-            perferendis quae beatae cumque! A nobis quaerat maiores maxime. Vero
-            voluptates, magni repellat recusandae omnis incidunt esse officiis
-            at quibusdam repellendus unde pariatur obcaecati odit totam, autem
-            ad a accusamus cupiditate placeat quidem maiores praesentium hic
-            possimus! Corporis minima, adipisci officiis doloribus quibusdam
-            reprehenderit vel omnis nemo quos rerum illo! Expedita quis hic a
-            libero corporis dolorum, accusamus optio iusto autem aut nam dolores
-            asperiores nisi nihil suscipit debitis laudantium. Unde a officiis
-            veniam fugiat in, enim incidunt itaque veritatis. A incidunt
-            distinctio nulla totam, ducimus nihil ex. Eius, voluptatibus
-            perspiciatis velit voluptates reprehenderit iste consectetur, nihil
-            error a ratione hic quod ullam libero voluptate suscipit soluta
-            itaque in natus laborum porro possimus nobis fugit. Culpa et odit
-            provident, accusantium laudantium iste quibusdam vero obcaecati sit
-            ullam cum sequi nostrum harum iusto voluptatem modi similique,
-            molestiae consequatur quaerat fuga ex. Dolor incidunt facere non
-            sapiente quibusdam perspiciatis! Aperiam expedita aliquam neque
-            veniam vitae, earum consectetur quo odit blanditiis, sit culpa
-            laboriosam nulla, dignissimos accusamus. Asperiores quaerat culpa
-            vel eius ipsa architecto labore, perferendis sit ab veritatis
-            deserunt vero, voluptatem minus dolores porro tenetur! A, minus
-            quas! Porro asperiores consequuntur culpa odio maiores voluptate ut
-            ex aspernatur officia aliquid, quaerat, eligendi veritatis illo
-            possimus, ducimus natus commodi? Facilis fugit aliquam minima illo
-            voluptatum accusamus corrupti, voluptates iusto cupiditate. Quod
-            pariatur error atque iusto cumque consectetur eligendi
-            necessitatibus unde! Iusto quod inventore dignissimos deleniti
-            dolore molestiae iste qui nesciunt magnam odit porro sunt optio
-            laboriosam quaerat dicta explicabo dolorem fugit doloremque
-            praesentium saepe, exercitationem quisquam vero ea! Dolor,
-            voluptatem eligendi. Non beatae modi accusantium odio illum
-            obcaecati, praesentium hic suscipit fuga! Ducimus dignissimos
-            perspiciatis officiis adipisci asperiores autem ab delectus maiores
-            ratione consectetur voluptates quos eligendi voluptate natus, odit
-            nisi omnis quis dicta repudiandae consequuntur? Dolor corporis fuga,
-            neque numquam sed fugit nesciunt dolorem vero omnis necessitatibus
-            ea aspernatur magni? At quia quas, accusamus veritatis amet nihil
-            optio quam ea pariatur minus eius nulla ullam. Unde delectus
-            mollitia, qui architecto nisi exercitationem illum ullam eveniet
-            iste laborum quasi veritatis accusantium deserunt obcaecati neque
-            dolorum magni tempora perferendis nihil, deleniti reprehenderit! Hic
-            totam distinctio deleniti praesentium explicabo, nemo error corporis
-            sunt pariatur doloribus delectus sequi unde consequuntur quia sint?
-            Velit eius repellendus, ipsa possimus totam quod atque commodi
-            quasi. Velit officia quibusdam consequuntur nemo tempora
-            accusantium.
-        </p>
+        <div
+            class="Project"
+            v-for="project in projects"
+            v-bind:key="project.id"
+        >
+            <Project :imgSrc="project.image" />
+        </div>
     </section>
 </template>
 
 <script>
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Project from "../components/Project.vue";
 gsap.registerPlugin(ScrollTrigger);
+
 export default {
     name: "Home",
-    components: {},
+    data() {
+        return {
+            projects: [
+                {
+                    id: 1,
+                    title: "Movie Website",
+                    image: "logo.png",
+                    description:
+                        "Website used to view and search information about movies, actors",
+                },
+            ],
+        };
+    },
+    components: {
+        Project: Project,
+    },
     methods: {
         heroScrollAnimation() {
             const timeline = gsap.timeline({
